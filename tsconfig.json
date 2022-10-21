@@ -2,6 +2,12 @@
   "compilerOptions": {
     "lib": [
       "es6"
-    ]
-  }
+    ],
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "noEmitOnError": true
+  },
 }
