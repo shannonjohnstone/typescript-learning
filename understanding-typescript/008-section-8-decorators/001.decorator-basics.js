@@ -5,26 +5,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 function Logger(logString) {
     return function (_) {
         console.log(logString);
     };
 }
 function WithTemplate(template, hookId) {
-    console.log('WithTemplate 1');
     return function (constructor) {
-        console.log('WithTemplate 2');
-        return class extends constructor {
-            constructor(..._) {
-                super();
-                console.log('Rendering template!');
-                const el = document.getElementById(hookId);
-                if (el) {
-                    const person1 = new constructor();
-                    el.innerHTML = template + ' : ' + person1.name;
-                }
-            }
-        };
+        const el = document.getElementById(hookId);
+        if (el) {
+            const person1 = new constructor();
+            el.innerHTML = template + ' : ' + person1.name;
+        }
     };
 }
 let Person = class Person {

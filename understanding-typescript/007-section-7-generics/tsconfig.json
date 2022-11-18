@@ -13,7 +13,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
-    "noEmitOnError": true
+    "noEmitOnError": true,
   },
   "exclude": [
     "node_modules"
