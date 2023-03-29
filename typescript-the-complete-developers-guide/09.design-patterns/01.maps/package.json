@@ -1,0 +1,25 @@
+{
+  "name": "09.01.maps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx parcel index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/google.maps": "^3.52.4",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "parcel": "^2.8.3",
+    "prettier": "^2.8.7"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0"
+  }
+}
