@@ -1,3 +1,4 @@
+import { CharactorCollection } from './CharactorCollection';
 import { NumbersCollection } from './NumbersCollection';
 import { Sorter } from './Sorter';
 
@@ -9,7 +10,10 @@ describe('Sorter', () => {
     expect(sorted).toEqual([-5, 0, 3, 10]);
   });
 
-  // test('should sort characters', () => {
-  //   expect(new Sorter('Xaba').sort()).toEqual('aabX');
-  // });
+  test('should sort characters', () => {
+    const collection = new CharactorCollection('Xaba');
+    const sorted = new Sorter(collection).sort();
+
+    expect(sorted).toEqual('aabX');
+  });
 });
