@@ -1,6 +1,6 @@
 import { ISort } from './Sorter';
 
-export class NumbersCollection implements ISort {
+export class NumbersCollection implements ISort<number[]> {
   constructor(public data: number[]) { }
 
   swap(index: number): void {
