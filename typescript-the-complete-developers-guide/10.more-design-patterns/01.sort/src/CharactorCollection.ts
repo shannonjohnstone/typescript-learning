@@ -1,8 +1,8 @@
-import { ISort } from './Sorter';
+import { ISortable } from './Sorter';
 
 type Data = string;
 
-export class CharactorCollection implements ISort<Data> {
+export class CharactorCollection implements ISortable<Data> {
   constructor(public data: Data) { }
 
   swap(index: number): void {

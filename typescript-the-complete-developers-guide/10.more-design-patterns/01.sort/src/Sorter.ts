@@ -1,4 +1,4 @@
-export interface ISort<R> {
+export interface ISortable<R> {
   length: number;
   compare: (index: number) => boolean;
   swap: (index: number) => void;
@@ -6,7 +6,7 @@ export interface ISort<R> {
 }
 
 export class Sorter<R> {
-  constructor(public collection: ISort<R>) { }
+  constructor(public collection: ISortable<R>) { }
 
   sort(): R {
     const length = this.collection.length;
