@@ -1,9 +1,11 @@
-import { ISortable } from './Sorter';
+import { AbstractSorter } from './Sorter.abstract';
 
 type Data = string;
 
-export class CharactorCollection implements ISortable<Data> {
-  constructor(public data: Data) { }
+export class CharactorCollection extends AbstractSorter<Data> {
+  constructor(public data: Data) {
+    super();
+  }
 
   swap(index: number): void {
     const arrayOfCharaters = [...this.data];

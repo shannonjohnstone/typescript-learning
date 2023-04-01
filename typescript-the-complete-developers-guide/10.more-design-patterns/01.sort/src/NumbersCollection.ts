@@ -1,9 +1,11 @@
-import { ISortable } from './Sorter';
+import { AbstractSorter } from './Sorter.abstract';
 
 type Data = number[];
 
-export class NumbersCollection implements ISortable<Data> {
-  constructor(public data: Data) { }
+export class NumbersCollection extends AbstractSorter<Data> {
+  constructor(public data: Data) {
+    super();
+  }
 
   swap(index: number): void {
     const itemToBeSwappedToRight = this.data[index];
