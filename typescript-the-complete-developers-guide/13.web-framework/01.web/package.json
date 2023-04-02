@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:build": "tsc -w",
-    "start:run": "nodemon build/index.js",
-    "start:tsc": "concurrently npm:start:*",
-    "start": "npx parcel index.html",
+    "starttsc:build": "tsc -w",
+    "tsc:run": "nodemon build/index.js",
+    "tsc:tsc": "concurrently npm:start:*",
+    "start": "concurrently npm:start:*",
+    "start:parcel": "npx parcel index.html",
+    "start:db": "json-server -w db.json",
     "test": "jest"
   },
   "keywords": [],
