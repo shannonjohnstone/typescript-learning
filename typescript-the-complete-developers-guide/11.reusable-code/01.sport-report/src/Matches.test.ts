@@ -1,13 +1,14 @@
-import fs from 'fs';
+import { CsvFileReader } from './CsvFileReader';
 import { Matches } from './Matches';
-import { DataParser } from './Data-parser';
+import { MatcheReader } from './MatchReader';
 
 describe('Matches', () => {
   describe('Given a team name', () => {
     test('Then provide their total wins', () => {
-      const matchesParser = new DataParser('football.csv', Matches.parseCSV);
+      const csvFileReader = new CsvFileReader('football.csv');
+      const matchReader = new MatcheReader(csvFileReader);
 
-      const matchReporter = new Matches(matchesParser.parseUTF());
+      const matchReporter = new Matches(matchReader.load());
 
       expect(matchReporter.wins('Man United')).toEqual(18);
     });
