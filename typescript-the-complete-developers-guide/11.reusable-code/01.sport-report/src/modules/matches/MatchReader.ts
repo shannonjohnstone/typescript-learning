@@ -1,15 +1,5 @@
-type MatchesData = [Date, string, string, number, number, MatchResult, string];
-
-export interface DataReader {
-  read(): void;
-  data: string[][];
-}
-
-enum MatchResult {
-  HomeWin = 'H',
-  AwayWin = 'A',
-  Draw = 'D',
-}
+import { DataReader } from '../../file-reader/DataReader';
+import { MatchResult, MatchesData } from './MatchData';
 
 const dateStringToDate = (dateString: string) => {
   const dateParts = dateString.split('/').map((value) => parseInt(value));

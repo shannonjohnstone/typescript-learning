@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { DataReader } from './MatchReader';
+import { DataReader } from './DataReader';
 
 export class CsvFileReader implements DataReader {
   data: string[][] = [];
