@@ -32,8 +32,8 @@ describe('User', () => {
     test('Then the event should be added', () => {
       const user = new User({});
       const clickFunction = () => 'yes';
-      user.on('click', clickFunction);
-      expect(user.events).toEqual({ click: [clickFunction] });
+      user.events.on('click', clickFunction);
+      expect(user.events.events).toEqual({ click: [clickFunction] });
     });
   });
 
@@ -42,10 +42,10 @@ describe('User', () => {
       const user = new User({});
       const mockEvent = jest.fn();
 
-      user.trigger('click');
+      user.events.trigger('click');
 
-      user.on('click', mockEvent);
-      user.trigger('click');
+      user.events.on('click', mockEvent);
+      user.events.trigger('click');
 
       expect(mockEvent).toHaveBeenCalled();
     });
