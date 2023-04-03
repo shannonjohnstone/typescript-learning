@@ -1,10 +1,12 @@
+import axios, { AxiosResponse } from 'axios';
 interface UserProps {
+  id?: number;
   name?: string;
   age?: number;
 }
 
 type Callback = () => void;
-type PropsNameUnion = 'name' | 'age';
+type PropsNameUnion = 'name' | 'age' | 'id';
 
 export class User {
   events: { [key: string]: Callback[] } = {};
@@ -32,5 +34,28 @@ export class User {
     handlers.forEach((callback) => {
       callback();
     });
+  }
+
+  async fetch(): Promise<UserProps> {
+    const userId = this.get('id');
+
+    const { data }: AxiosResponse = await axios.get(`http://localhost:3000/users/${userId}`);
+    return data;
+  }
+
+  async save(): Promise<{ code: string; message: string } | never> {
+    const userId = this.get('id');
+
+    try {
+      if (userId) {
+        await axios.put(`http://localhost:3000/users/${userId}`, this.data);
+        return { code: 'SUCCESSFUL_SAVE', message: `Successfully updated a user` };
+      } else {
+        await axios.post(`http://localhost:3000/users`, this.data);
+        return { code: 'SUCCESSFUL_SAVE', message: `Successfully created a user` };
+      }
+    } catch (error) {
+      throw new Error('Error saving data');
+    }
   }
 }

@@ -1,4 +1,8 @@
+import axios from 'axios';
 import { User } from './User';
+
+jest.mock('axios');
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('User', () => {
   describe('Given a user is created', () => {
@@ -44,6 +48,36 @@ describe('User', () => {
       user.trigger('click');
 
       expect(mockEvent).toHaveBeenCalled();
+    });
+  });
+
+  describe('Given a valid user is fetched', () => {
+    test('Then return that user data', async () => {
+      const userData = { name: 'TestUser' };
+      mockedAxios.get.mockImplementation(() => Promise.resolve({ data: userData }));
+      const user = new User(userData);
+      const fetchedData = await user.fetch();
+      expect(fetchedData).toEqual(userData);
+    });
+  });
+
+  describe('Given valid user data is used to save', () => {
+    test('Then it should save successfully', async () => {
+      mockedAxios.get = jest.fn();
+      mockedAxios.post = jest.fn();
+
+      const userData = { name: 'TestUser' };
+      const user = new User(userData);
+      expect(await user.save()).toEqual({
+        code: 'SUCCESSFUL_SAVE',
+        message: 'Successfully created a user',
+      });
+
+      const userWithId = new User({ ...userData, id: 1 });
+      expect(await userWithId.save()).toEqual({
+        code: 'SUCCESSFUL_SAVE',
+        message: 'Successfully updated a user',
+      });
     });
   });
 });
