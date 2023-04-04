@@ -3,11 +3,11 @@ import axios, { AxiosPromise } from 'axios';
 export class Sync<T extends { id?: number }> {
   constructor(public url: string) { }
 
-  async fetch(id: number): AxiosPromise {
+  fetch = async (id: number): AxiosPromise => {
     return axios.get(`${this.url}${id}`);
-  }
+  };
 
-  async save(data: T): AxiosPromise {
+  save = async (data: T): AxiosPromise => {
     const id = data?.id;
 
     try {
@@ -19,5 +19,5 @@ export class Sync<T extends { id?: number }> {
     } catch (error) {
       throw new Error('Error saving data');
     }
-  }
+  };
 }
