@@ -1,3 +1,32 @@
 {
-  "users": []
+  "users": [
+    {
+      "name": "Dustin",
+      "id": 1
+    },
+    {
+      "name": "Dustin",
+      "id": 2
+    },
+    {
+      "name": "Dustin",
+      "id": 3
+    },
+    {
+      "name": "Dustin",
+      "id": 4
+    },
+    {
+      "name": "Dustin",
+      "id": 5
+    },
+    {
+      "name": "Dustin",
+      "id": 6
+    },
+    {
+      "name": "Dustin",
+      "id": 7
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from 'axios';
 
-export class Sync<T extends { id?: number }> {
+export class SyncApi<T extends { id?: number }> {
   constructor(public url: string) { }
 
   fetch = async (id: number): AxiosPromise => {
